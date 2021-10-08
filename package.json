@@ -1,0 +1,37 @@
+{
+  "name": "scripts-with-dependencies",
+  "version": "1.0.0",
+  "description": "Contains script invocations and their dependencies",
+  "scripts": {
+    "pre-commit": "npm run check-and-write-data",
+    "check-and-write-data": "npm run _replace-tabs && npm run _write-notes-trees && npm run _write-tocs-and-format && npm run _validate-internal-links && npm run _custom-checks-adjustments && npm run _write-website-data",
+    "build-website": "npm run check-and-write-data && cd _website && npm run build && cd .. && npm run _generate-sitemap",
+    "serve-built-website": "node ./_scripts/serve-built-website.js",
+    "build-and-serve": "npm run build-website && npm run serve-built-website",
+    "build-website-ci": "npm ci && cd _website && npm ci && cd .. && npm run build-website",
+    "deploy": "cp -r _website/build dist && git push origin `git subtree split --prefix dist master`:gh-pages --force && rm -rf ./dist",
+    "build-and-deploy": "npm run build-website && npm run deploy",
+    "validate-external-links": "remark --rc-path _scripts/remark-validate-external-links.config.json --ignore-path .remarkignore --frail .",
+    "_replace-tabs": "replace-in-file --configFile=_scripts/replace-in-file.config.js",
+    "_write-notes-trees": "markdown-notes-tree --ignore CONTRIBUTING.md --linkToSubdirectoryReadme --notesBeforeDirectories",
+    "_write-tocs-and-format": "remark --rc-path _scripts/remark-write-tocs-and-format.config.json --ignore-path .remarkignore . --output",
+    "_validate-internal-links": "remark --rc-path _scripts/remark-validate-internal-links.config.json --ignore-path .remarkignore --frail .",
+    "_custom-checks-adjustments": "node ./_scripts/custom-checks-adjustments.js",
+    "_write-website-data": "node ./_scripts/write-website-data.js",
+    "_generate-sitemap": "node ./_scripts/generate-sitemap.js"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "front-matter": "^3.1.0",
+    "fs-extra": "^9.0.0",
+    "markdown-notes-tree": "^1.10.0",
+    "remark-cli": "^8.0.0",
+    "remark-frontmatter": "^2.0.0",
+    "remark-lint-no-dead-urls": "^1.0.2",
+    "remark-toc": "^7.0.0",
+    "remark-validate-links": "^10.0.0",
+    "replace-in-file": "^5.0.2",
+    "sitemap": "^6.1.1",
+    "unist-util-visit": "^2.0.2"
+  }
+}
