@@ -1,5 +1,5 @@
 ---
-tree_title: Background jobs
+tree_title: Background
 description: Background jobs
 last_modified: 2021-10-11
 ---
