@@ -1,9 +1,0 @@
-{
-    "plugins": {
-        "remark-frontmatter": {},
-        "remark-toc": {
-            "heading": "contents",
-            "tight": true
-        }
-    }
-}

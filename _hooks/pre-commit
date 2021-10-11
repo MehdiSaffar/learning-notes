@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# run pre-commit scripts and exit if they fail
-npm run pre-commit || exit 1
-
-# make sure any changes made by scripts are committed
-git add --all
