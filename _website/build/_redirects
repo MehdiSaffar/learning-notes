@@ -1,6 +1,0 @@
-# Netlify redirects
-# test on https://play.netlify.com/redirects
-
-# the ! makes this a forced redirect, so Netlify redirects it even if it finds an index.html on root
-# https://www.netlify.com/blog/2020/04/07/creating-better-more-predictable-redirect-rules-for-spas/
-/   /about/about/ 301!

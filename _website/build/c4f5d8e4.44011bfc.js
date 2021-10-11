@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{147:function(t,n,a){"use strict";a.r(n);var e=a(0),o=a.n(e),u=a(162),c=a(156);n.default=function(){return o.a.createElement(u.a,{to:Object(c.a)("/about/about")})}}}]);
